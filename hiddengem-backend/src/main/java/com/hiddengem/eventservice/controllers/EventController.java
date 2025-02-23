@@ -19,9 +19,15 @@ public class EventController {
     // ✅ Endpoint to fetch filtered events
     @GetMapping("/search")
     public List<Event> getFilteredEvents(
-            @RequestParam LocalDate date,
-            @RequestParam String location,
-            @RequestParam String type) {
+            @RequestParam(required = false) LocalDate date,
+            @RequestParam(required = false, defaultValue = "Charlottesville") String location,
+            @RequestParam(required = false) String type) {
+
+        // Default to today’s date if date is not provided
+        if (date == null) {
+            date = LocalDate.now();
+        }
+
         return eventService.getFilteredEvents(date, location, type);
     }
 }

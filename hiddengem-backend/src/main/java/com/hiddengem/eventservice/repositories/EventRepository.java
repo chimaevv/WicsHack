@@ -11,6 +11,6 @@ import java.util.List;
 public interface EventRepository extends JpaRepository<Event, Long> {
 
     // ✅ Query to filter events by date, location, and type
-    @Query("SELECT * FROM events e WHERE e.event_date = :date AND e.location = :location --AND e.type = :type")
-    List<Event> findEventsByFilters(LocalDate date, String location, String type);
+    @Query("SELECT e FROM events e WHERE e.event_date = :date AND e.event_location = :location AND (:type IS NULL OR e.event_tag = :tag)")
+    List<Event> findEventsByFilters(@Param("date") LocalDate date, @Param("location") String location, @Param("type") String tag);
 }
