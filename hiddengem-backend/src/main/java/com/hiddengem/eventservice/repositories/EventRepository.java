@@ -1,5 +1,5 @@
 package com.hiddengem.eventservice.repositories;
-
+import org.springframework.data.repository.query.Param;
 import com.hiddengem.eventservice.models.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
