@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Modern Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes magnify-move {
+  0% { transform: rotate(-15deg) translate(15px, 5px); }
+  50% { transform: rotate(0deg) translate(5px, 10px); }
+  100% { transform: rotate(-15deg) translate(15px, 5px); }
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 200px; /* Increased size */
+  height: 200px; /* Increased size */
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo-container img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
+
+.magnifying-glass {
+  position: absolute;
+  width: 80px; /* Set fixed width instead of percentage */
+  height: 80px; /* Set fixed height to maintain aspect ratio */
+  bottom: 5px;
+  right: -15px;
+  transform-origin: bottom right;
+  animation: magnify-move 3s ease-in-out infinite;
+  object-fit: contain; /* Ensure the image maintains its aspect ratio */
+}
+
+/* 🔹 Background Image from Figma Export */
+body {
+  background: url('/Frame 2.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🔹 Navigation Bar Styling */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #d1d5db;
+  padding: 15px;
+  border-radius: 25px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.navbar input {
+  background: white;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  width: 200px;
+}
+
+.navbar button {
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* 🔹 Streak Box */
+.streak-box {
+  background-color: #d1d5db;
+  padding: 15px;
+  border-radius: 15px;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+/* 🔹 Remove Any Unwanted Background Box */
+.content-box {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.content-box h1 {
+  font-size: 42px;
+  font-weight: 800;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.content-box p {
+  font-size: 18px;
+  color: #d1d5db;
+  margin-top: 10px;
+}
+
+/* 🔹 Modern Button Styling */
+.button {
+  background-color: #ffffff;
+  padding: 14px 24px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e3a8a;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.button:hover {
+  background-color: #f3f4f6;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
