@@ -14,7 +14,13 @@ public class EventService {
     @Autowired
     private EventRepository eventRepository;
 
-    public List<Event> getFilteredEvents(LocalDate date, String location, String type) {
-        return eventRepository.findEventsByFilters(date, location, type);
+    public List<Event> getFilteredEvents(LocalDate date, String location, String tag) {
+        if (date == null) {
+            date = LocalDate.now();  // ✅ Default to today's date if not provided
+        }
+        if (location == null || location.isEmpty()) {
+            location = "Charlottesville";  // ✅ Default to Charlottesville if not provided
+        }
+        return eventRepository.findEventsByFilters(date, location, tag);
     }
 }
